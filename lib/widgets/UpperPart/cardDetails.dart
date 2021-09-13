@@ -13,6 +13,7 @@ class CardDetails extends StatefulWidget {
 
 class _CardDetailsState extends State<CardDetails>
     with SingleTickerProviderStateMixin {
+  var degree = "°";
   late final AnimationController _controller;
 
   late Animation<Offset> _animation;
@@ -51,12 +52,25 @@ class _CardDetailsState extends State<CardDetails>
           ),
         ),
         Flexible(
-          flex: 2,
-          child: Text(
-            "21",
-            style: smallCardPrimaryText.copyWith(fontSize: widget.height * 0.2),
-          ),
-        ),
+            flex: 2,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "21",
+                  style: smallCardPrimaryText.copyWith(
+                      fontSize: widget.height * 0.2),
+                ),
+                Text(
+                  degree,
+                  style: smallCardPrimaryText.copyWith(
+                    fontSize: widget.height * 0.09,
+                    color: secondaryTextColor2,
+                  ),
+                )
+              ],
+            )),
         Flexible(
           flex: 1,
           child: Text(

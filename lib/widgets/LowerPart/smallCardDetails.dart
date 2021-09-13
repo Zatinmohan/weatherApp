@@ -7,6 +7,7 @@ class SmallDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var degree = "°";
     var temp = "23";
     var icon;
     var time = "10:00";
@@ -15,7 +16,7 @@ class SmallDetails extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Text(
-          "$temp",
+          "$temp$degree",
           style: smallCardPrimaryText.copyWith(fontSize: width * 0.05),
         ),
         Icon(
@@ -26,6 +27,7 @@ class SmallDetails extends StatelessWidget {
         Text("$time",
             style: SecondaryTextStyle.copyWith(
               fontSize: width * 0.04,
+              color: secondaryTextColor2,
             )),
       ],
     );
