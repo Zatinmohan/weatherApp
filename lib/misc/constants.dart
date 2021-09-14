@@ -16,7 +16,11 @@ extension MediaQueryValues on BuildContext {
 }
 
 //------API URL----------------
-final Url = "http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=";
+final Url = "https://api.openweathermap.org/data/2.5/onecall?";
+final Lat = "lat=";
+final Lon = "&lon=";
+final exclue = "&exclue=minutely";
+final appid = "&appid=";
 
 //---------------------Styles--------------------------------------------
 //Text Styles
