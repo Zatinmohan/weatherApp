@@ -47,7 +47,7 @@ class _CardDetailsState extends State<CardDetails>
           child: SlideTransition(
             position: _animation,
             child: Image.asset(
-              'assets/clouds/12.png',
+              'assets/clouds/ThunderStorm.png',
             ),
           ),
         ),

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:weather/api/weather.dart';
 import 'package:weather/misc/constants.dart';
+import 'package:weather/misc/dailyWeather.dart';
+import 'package:weather/misc/weatherData.dart';
+import 'package:weather/misc/weatherDataCurrent.dart';
 import 'package:weather/widgets/LowerPart/weatherDetails.dart';
 import 'package:weather/widgets/UpperPart/weatherCards.dart';
 import 'package:location/location.dart';
@@ -13,7 +17,10 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   LocationData? _currentPosition;
+  String? latitude, longitude;
+  Future<weatherData>? _weatherInfo;
   // String _address, _dateTime;
+
   Location location = Location();
 
   getLoc() async {
@@ -33,16 +40,19 @@ class _MainScreenState extends State<MainScreen> {
     }
 
     _currentPosition = await location.getLocation();
-    setState(() {});
+    setState(() {
+      latitude = _currentPosition?.latitude.toString();
+      longitude = _currentPosition?.longitude.toString();
+      _weatherInfo = APIManager().processData(latitude, longitude);
+    });
 
-    print(
-        "Latitude: ${_currentPosition?.latitude} Longitude: ${_currentPosition?.longitude}");
+    print("Latitude: $latitude Longitude: $longitude");
   }
 
   @override
   void initState() {
     super.initState();
-    getLoc();
+    if (latitude == null && longitude == null) getLoc();
   }
 
   @override
@@ -52,7 +62,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: _currentPosition != null
+          child: _weatherInfo != null
               ? Column(
                   children: [
                     WeatherCard(width: width, height: height * 0.80),

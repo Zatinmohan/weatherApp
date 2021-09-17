@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather/api/api_key.dart';
 
 final cardColor = Color(0xff4884EE);
 final nextCardColor = Color(0xff06BCFB);
@@ -19,8 +20,46 @@ extension MediaQueryValues on BuildContext {
 final Url = "https://api.openweathermap.org/data/2.5/onecall?";
 final Lat = "lat=";
 final Lon = "&lon=";
-final exclue = "&exclue=minutely";
+final exclude = "&exclue=minutely";
 final appid = "&appid=";
+
+String getURL(var lat, var lon) {
+  String _url;
+  _url =
+      Url + Lat + lat.toString() + Lon + lon.toString() + exclude + appid + key;
+  return _url;
+}
+
+
+//-------------------- Icons For Weather---------------------------------
+
+//--------------------Just Clouds -------------------------------
+  //Thunderstorm
+  const thunderStorm = "assets/clouds/ThunderStorm.png";
+  const thunderStormWithClouds = "assets/clouds/ThunderstormWithClouds.png";
+  const heavyThunderStorm = "assets/clouds/HeavyThunderStorm.png";
+
+  //Rain
+  const lightRain = "assets/clouds/LightRain.png";
+  const moderateRain = "assets/clouds/ModerateRain.png";
+  const lightRainSnow = "assets/clouds/LightRainSnow.png";
+
+  //Clouds
+  const HeavycloudyDay = "assets/clouds/Cloudy.png";
+//---------------------------------------------------------------
+
+//------------------ Day Icons ----------------------------------
+  //Clear Day
+  const clear = "assets/sun/Clear.png";
+  const cloudyDay = "assets/sun/Cloudy.png";
+  
+
+//---------------------------------------------------------------
+
+
+
+//---------------------------------------------------------------
+
 
 //---------------------Styles--------------------------------------------
 //Text Styles

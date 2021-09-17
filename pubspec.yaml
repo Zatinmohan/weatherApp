@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   font_awesome_flutter:
   location:
+  http:
 
 dev_dependencies:
   flutter_test:

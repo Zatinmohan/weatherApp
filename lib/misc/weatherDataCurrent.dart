@@ -1,14 +1,9 @@
-// To parse this JSON data, do
-//
-//     final weatherDataCurrent = weatherDataCurrentFromJson(jsonString);
+// List<WeatherDataCurrent> weatherDataCurrentFromJson(var str) =>
+//     List<WeatherDataCurrent>.from(
+//         str.map((x) => WeatherDataCurrent.fromJson(json.decode(str))));
 
-import 'dart:convert';
-
-WeatherDataCurrent weatherDataCurrentFromJson(String str) =>
-    WeatherDataCurrent.fromJson(json.decode(str));
-
-String weatherDataCurrentToJson(WeatherDataCurrent data) =>
-    json.encode(data.toJson());
+// String weatherDataCurrentToJson(WeatherDataCurrent data) =>
+//     json.encode(data.toJson());
 
 class WeatherDataCurrent {
   WeatherDataCurrent({
