@@ -3,9 +3,29 @@ import 'package:weather/misc/constants.dart';
 import 'package:weather/widgets/UpperPart/cardDetails.dart';
 
 class CardDesign extends StatelessWidget {
-  final height, width, index;
-  const CardDesign({Key? key, this.height, this.width, this.index})
-      : super(key: key);
+  final height,
+      width,
+      temp,
+      mainName,
+      weatherDesp,
+      wind,
+      humidity,
+      rain,
+      index,
+      day;
+  const CardDesign({
+    Key? key,
+    this.day,
+    this.index,
+    this.height,
+    this.width,
+    this.temp,
+    this.mainName,
+    this.weatherDesp,
+    this.wind,
+    this.humidity,
+    this.rain,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +55,17 @@ class CardDesign extends StatelessWidget {
           ],
         ),
       ),
-      child: CardDetails(width: width, height: height),
+      child: CardDetails(
+        width: width,
+        height: height,
+        temp: temp,
+        day: day,
+        weatherDesp: weatherDesp,
+        weatherName: mainName,
+        wind: wind,
+        humidity: humidity,
+        rain: rain,
+      ),
     );
   }
 }

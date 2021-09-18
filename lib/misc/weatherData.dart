@@ -11,4 +11,6 @@ class weatherData {
   ]);
 
   WeatherDataCurrent getCurrentData() => _current!;
+
+  DailyWeather getDailyWeather() => _daily!;
 }

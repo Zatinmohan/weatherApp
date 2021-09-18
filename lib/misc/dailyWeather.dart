@@ -48,11 +48,11 @@ class Daily {
         dt: json["dt"],
         temp: Temp.fromJson(json["temp"]),
         humidity: json["humidity"],
-        windSpeed: json["wind_speed"],
+        windSpeed: json["wind_speed"]?.toDouble(),
         weather:
             List<Weather>.from(json["weather"].map((x) => Weather.fromJson(x))),
         clouds: json["clouds"],
-        rain: json["rain"],
+        rain: json["rain"]?.toDouble(),
       );
 
   Map<String, dynamic> toJson() => {
@@ -72,12 +72,12 @@ class Temp {
     this.night,
   });
 
-  double? day;
-  double? night;
+  var day;
+  var night;
 
   factory Temp.fromJson(Map<String, dynamic> json) => Temp(
-        day: json["day"],
-        night: json["night"],
+        day: json["day"].toStringAsFixed(1),
+        night: json["night"].toStringAsFixed(1),
       );
 
   Map<String, dynamic> toJson() => {

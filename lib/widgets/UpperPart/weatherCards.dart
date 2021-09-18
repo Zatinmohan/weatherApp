@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:weather/misc/dailyWeather.dart';
 import 'cardDesign.dart';
 
 class WeatherCard extends StatefulWidget {
   final width, height;
-  const WeatherCard({Key? key, this.width, this.height}) : super(key: key);
+  final Future<DailyWeather>? dailyWeather;
+  const WeatherCard({Key? key, this.width, this.height, this.dailyWeather})
+      : super(key: key);
 
   @override
   _WeatherCardState createState() => _WeatherCardState();
@@ -26,26 +29,57 @@ class _WeatherCardState extends State<WeatherCard>
 
     currentIndex = 0;
 
-    cards.add(CardDesign(
-      width: widget.width,
-      height: widget.height,
-      index: 0,
-    ));
-    cards.add(CardDesign(
-      width: widget.width,
-      height: widget.height,
-      index: 1,
-    ));
-    cards.add(CardDesign(
-      width: widget.width,
-      height: widget.height,
-      index: 2,
-    ));
-    cards.add(CardDesign(
-      width: widget.width,
-      height: widget.height,
-      index: 3,
-    ));
+    widget.dailyWeather?.then((value) {
+      for (int i = 0; i < 4; i++) {
+        var temp = value.daily![i].temp?.day;
+        var windSpeed = value.daily![i].windSpeed;
+        var day = value.daily![i].dt;
+        var humidity = value.daily![i].humidity;
+        var rain = value.daily![i].clouds;
+        var weatherName = value.daily![i].weather![0].main;
+        var weatherDescription = value.daily![i].weather![0].description;
+
+        setState(() {
+          cards.add(CardDesign(
+            width: widget.width,
+            height: widget.height,
+            index: i + 1,
+            temp: temp,
+            rain: rain,
+            wind: windSpeed,
+            humidity: humidity,
+            weatherDesp: weatherDescription,
+            mainName: weatherName,
+            day: day,
+          ));
+        });
+      }
+    });
+
+    // cards.add(CardDesign(
+    //   width: widget.width,
+    //   height: widget.height,
+    //   index: 1,
+    //   // temp: widget.dailyWeather?.then((value) => value.daily![0].temp?.day),
+    // ));
+    // cards.add(CardDesign(
+    //   width: widget.width,
+    //   height: widget.height,
+    //   index: 2,
+    //   // temp: widget.dailyWeather?.then((value) => value.daily![1].temp?.day),
+    // ));
+    // cards.add(CardDesign(
+    //   width: widget.width,
+    //   height: widget.height,
+    //   index: 3,
+    //   // temp: widget.dailyWeather?.then((value) => value.daily![2].temp?.day),
+    // ));
+    // cards.add(CardDesign(
+    //   width: widget.width,
+    //   height: widget.height,
+    //   index: 4,
+    //   // temp: widget.dailyWeather?.then((value) => value.daily![3].temp?.day),
+    // ));
 
     controller = AnimationController(
       vsync: this,

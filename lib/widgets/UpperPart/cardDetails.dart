@@ -1,11 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:weather/misc/constants.dart';
 import 'package:weather/widgets/UpperPart/smallDetails.dart';
 
 class CardDetails extends StatefulWidget {
-  final height, width;
-  const CardDetails({Key? key, this.height, this.width}) : super(key: key);
+  final height,
+      width,
+      temp,
+      day,
+      weatherName,
+      weatherDesp,
+      wind,
+      humidity,
+      rain;
+  const CardDetails(
+      {Key? key,
+      this.height,
+      this.width,
+      this.temp,
+      this.day,
+      this.weatherName,
+      this.weatherDesp,
+      this.wind,
+      this.humidity,
+      this.rain})
+      : super(key: key);
 
   @override
   _CardDetailsState createState() => _CardDetailsState();
@@ -17,6 +37,12 @@ class _CardDetailsState extends State<CardDetails>
   late final AnimationController _controller;
 
   late Animation<Offset> _animation;
+
+  String _getDateTime(var dt) {
+    DateTime x = DateTime.fromMillisecondsSinceEpoch(widget.day * 1000);
+    String y = DateFormat('EEEE, d MMMM').format(x);
+    return y;
+  }
 
   @override
   void initState() {
@@ -37,6 +63,60 @@ class _CardDetailsState extends State<CardDetails>
     super.dispose();
   }
 
+  String _selectIcon(String w) {
+    //Thunderstorm
+    if (w == "thunderstorm with light rain" ||
+        w == "thunderstorm with rain" ||
+        w == "ragged thunderstorm" ||
+        w == "thunderstorm with light drizzle" ||
+        w == "thunderstorm with drizzle")
+      return thunderStormWithClouds;
+    else if (w == "thunderstorm with heavy rain" ||
+        w == "heavy thunderstorm" ||
+        w == "thunderstorm with heavy drizzle")
+      return heavyThunderStorm;
+    else if (w == "light thunderstorm" ||
+        w == "thunderstorm" ||
+        w == "very heavy rain" ||
+        w == "extreme rain")
+      return thunderStorm;
+
+    //Drizzle and Rain
+    else if (w == "light intensity drizzle" ||
+        w == "drizzle" ||
+        w == "light intensity drizzle rain" ||
+        w == "shower rain and drizzle" ||
+        w == "shower drizzle" ||
+        w == "light rain" ||
+        w == "shower rain")
+      return lightRain;
+    else if (w == "heavy intensity drizzle" ||
+        w == "heavy shower rain and drizzle" ||
+        w == "moderate rain" ||
+        w == "heavy intensity rain" ||
+        w == "light intensity shower rain" ||
+        w == "heavy intensity shower rain" ||
+        w == "ragged shower rain")
+      return moderateRain;
+    else if (w == "freezing rain")
+      return lightRainSnow;
+    else if (w == "mist" ||
+        w == "Smoke" ||
+        w == "Haze" ||
+        w == "sand/ dust whirls" ||
+        w == "fog" ||
+        w == "sand" ||
+        w == "dust" ||
+        w == "volcanic ash" ||
+        w == "squalls" ||
+        w == "tornado")
+      return mist;
+    else if (w == "clear sky")
+      return clear;
+    else
+      return snow;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -47,7 +127,7 @@ class _CardDetailsState extends State<CardDetails>
           child: SlideTransition(
             position: _animation,
             child: Image.asset(
-              'assets/clouds/ThunderStorm.png',
+              _selectIcon(widget.weatherDesp),
             ),
           ),
         ),
@@ -58,7 +138,7 @@ class _CardDetailsState extends State<CardDetails>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "21",
+                  "${widget.temp}",
                   style: smallCardPrimaryText.copyWith(
                       fontSize: widget.height * 0.2),
                 ),
@@ -74,7 +154,7 @@ class _CardDetailsState extends State<CardDetails>
         Flexible(
           flex: 1,
           child: Text(
-            "Thunderstorm",
+            "${toBeginningOfSentenceCase(widget.weatherDesp)}",
             style: DaysTextStyle.copyWith(
                 fontSize: widget.height * 0.06, fontWeight: FontWeight.w400),
           ),
@@ -83,7 +163,7 @@ class _CardDetailsState extends State<CardDetails>
         Flexible(
           flex: 1,
           child: Text(
-            "Friday, 10 Sept",
+            _getDateTime(widget.day),
             style: SecondaryTextStyle.copyWith(
                 fontSize: widget.height * 0.035, color: Color(0xffdbdbdb)),
           ),
@@ -106,19 +186,19 @@ class _CardDetailsState extends State<CardDetails>
               SmallDetails(
                   width: widget.width,
                   height: widget.height,
-                  value: "13 km/h",
+                  value: "${widget.wind} km/hr",
                   wicon: FontAwesomeIcons.wind,
                   measure: "Wind"),
               SmallDetails(
                   width: widget.width,
                   height: widget.height,
-                  value: "24%",
+                  value: "${widget.humidity}%",
                   wicon: FontAwesomeIcons.tint,
                   measure: "Humidity"),
               SmallDetails(
                   width: widget.width,
                   height: widget.height,
-                  value: "87%",
+                  value: "${widget.rain}%",
                   wicon: FontAwesomeIcons.cloudRain,
                   measure: "Rain"),
             ],

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:weather/api/weather.dart';
 import 'package:weather/misc/constants.dart';
-import 'package:weather/misc/dailyWeather.dart';
+
 import 'package:weather/misc/weatherData.dart';
-import 'package:weather/misc/weatherDataCurrent.dart';
+
 import 'package:weather/widgets/LowerPart/weatherDetails.dart';
 import 'package:weather/widgets/UpperPart/weatherCards.dart';
-import 'package:location/location.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -16,43 +16,44 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  LocationData? _currentPosition;
   String? latitude, longitude;
   Future<weatherData>? _weatherInfo;
   // String _address, _dateTime;
 
-  Location location = Location();
+  Future<void> _getLoc() async {
+    bool serviceEnabled;
+    LocationPermission permission;
 
-  getLoc() async {
-    bool _serviceEnabled;
-    PermissionStatus _permissionGranted;
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
 
-    _serviceEnabled = await location.serviceEnabled();
-    if (!_serviceEnabled) {
-      _serviceEnabled = await location.requestService();
-      if (_serviceEnabled) return;
+    if (!serviceEnabled) return Future.error("Location not Enabled");
+
+    permission = await Geolocator.checkPermission();
+
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied)
+        return Future.error("Location permissions are denied");
     }
 
-    _permissionGranted = await location.hasPermission();
-    if (_permissionGranted == PermissionStatus.denied) {
-      _permissionGranted = await location.requestPermission();
-      if (_permissionGranted == PermissionStatus.granted) return;
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
     }
 
-    _currentPosition = await location.getLocation();
+    final location = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.best);
     setState(() {
-      latitude = _currentPosition?.latitude.toString();
-      longitude = _currentPosition?.longitude.toString();
-      _weatherInfo = APIManager().processData(latitude, longitude);
+      print("Latitude: ${location.latitude} Longitude: ${location.longitude}");
+      _weatherInfo =
+          APIManager().processData(location.latitude, location.longitude);
     });
-
-    print("Latitude: $latitude Longitude: $longitude");
   }
 
   @override
   void initState() {
     super.initState();
-    if (latitude == null && longitude == null) getLoc();
+    if (_weatherInfo == null) _getLoc();
   }
 
   @override
@@ -65,7 +66,12 @@ class _MainScreenState extends State<MainScreen> {
           child: _weatherInfo != null
               ? Column(
                   children: [
-                    WeatherCard(width: width, height: height * 0.80),
+                    WeatherCard(
+                      width: width,
+                      height: height * 0.80,
+                      dailyWeather: _weatherInfo
+                          ?.then((value) => value.getDailyWeather()),
+                    ),
                     SizedBox(height: 20.0),
                     WeatherDetail(width: width, height: height),
                   ],
