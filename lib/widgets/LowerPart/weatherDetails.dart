@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:weather/misc/hourlyWeather.dart';
 import 'package:weather/widgets/LowerPart/DaysDetails.dart';
 import 'package:weather/widgets/LowerPart/smallWeatherCards.dart';
 
 class WeatherDetail extends StatelessWidget {
   final height, width;
-  const WeatherDetail({Key? key, this.height, this.width}) : super(key: key);
+  final HourlyWeather? hourly;
+  const WeatherDetail({Key? key, this.height, this.width, this.hourly})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,12 @@ class WeatherDetail extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           DaysDetails(width: width, height: height),
-          Expanded(child: SmallWeatherCards(width: width, height: height)),
+          Expanded(
+              child: SmallWeatherCards(
+            width: width,
+            height: height,
+            hourlyData: hourly?.hourly,
+          )),
         ],
       ),
     );

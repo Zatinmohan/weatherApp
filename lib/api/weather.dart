@@ -4,6 +4,7 @@ import 'package:weather/misc/constants.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:weather/misc/dailyWeather.dart';
+import 'package:weather/misc/hourlyWeather.dart';
 import 'package:weather/misc/weatherData.dart';
 import 'package:weather/misc/weatherDataCurrent.dart';
 
@@ -15,7 +16,7 @@ class APIManager {
     var jsonString = jsonDecode(response.body);
 
     _weatherData = weatherData(WeatherDataCurrent.fromJson(jsonString),
-        DailyWeather.fromJson(jsonString));
+        DailyWeather.fromJson(jsonString), HourlyWeather.fromJson(jsonString));
 
     return _weatherData!;
   }

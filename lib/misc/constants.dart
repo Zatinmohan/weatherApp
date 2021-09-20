@@ -64,6 +64,64 @@ const mist = "assets/sun/Misty.png";
 
 //---------------------------------------------------------------
 
+//--------------------Icon Selector------------------------------
+String selectIcon(String w) {
+  //Thunderstorm
+  if (w == "thunderstorm with light rain" ||
+      w == "thunderstorm with rain" ||
+      w == "ragged thunderstorm" ||
+      w == "thunderstorm with light drizzle" ||
+      w == "thunderstorm with drizzle")
+    return thunderStormWithClouds;
+  else if (w == "thunderstorm with heavy rain" ||
+      w == "heavy thunderstorm" ||
+      w == "thunderstorm with heavy drizzle")
+    return heavyThunderStorm;
+  else if (w == "light thunderstorm" ||
+      w == "thunderstorm" ||
+      w == "very heavy rain" ||
+      w == "extreme rain")
+    return thunderStorm;
+
+  //Drizzle and Rain
+  else if (w == "light intensity drizzle" ||
+      w == "drizzle" ||
+      w == "light intensity drizzle rain" ||
+      w == "shower rain and drizzle" ||
+      w == "shower drizzle" ||
+      w == "light rain" ||
+      w == "shower rain")
+    return lightRain;
+  else if (w == "heavy intensity drizzle" ||
+      w == "heavy shower rain and drizzle" ||
+      w == "moderate rain" ||
+      w == "heavy intensity rain" ||
+      w == "light intensity shower rain" ||
+      w == "heavy intensity shower rain" ||
+      w == "ragged shower rain")
+    return moderateRain;
+  else if (w == "freezing rain")
+    return lightRainSnow;
+  else if (w == "mist" ||
+      w == "Smoke" ||
+      w == "Haze" ||
+      w == "sand/ dust whirls" ||
+      w == "fog" ||
+      w == "sand" ||
+      w == "dust" ||
+      w == "volcanic ash" ||
+      w == "squalls" ||
+      w == "tornado")
+    return mist;
+  else if (w == "clear sky")
+    return clear;
+  else if (w == "broken clouds")
+    return HeavycloudyDay;
+  else
+    return snow;
+}
+//-----------------------------------------------------------------------
+
 //---------------------Styles--------------------------------------------
 //Text Styles
 const DaysTextStyle = TextStyle(
