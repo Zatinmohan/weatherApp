@@ -9,7 +9,7 @@ This application uses:
 - Realtime Location Management 
 
 **NOTE** 
-- To make it work generate the key by clicking on OpenWeatherAPI link and generate an API 
+- To make it work generate the key by clicking on OpenWeatherAPI link and generate an API key
 - Add API key to *api/ api_key.dart*
 
 
