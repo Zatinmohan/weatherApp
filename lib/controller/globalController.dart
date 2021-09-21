@@ -5,15 +5,20 @@ import 'package:weather/api/weather.dart';
 
 class GlobalController extends GetxController {
   var _weatherData = weatherData().obs;
+  var _cardIndex = 0.obs;
   RxBool _isloading = true.obs;
 
   @override
   void onInit() {
-    _fetchLocation();
+    if (_isloading.value == true)
+      _fetchLocation();
+    else
+      getIndex();
     super.onInit();
   }
 
   _fetchLocation() async {
+    print("Fetching Location");
     bool serviceEnabled;
     LocationPermission permission;
 
@@ -50,4 +55,9 @@ class GlobalController extends GetxController {
   }
 
   RxBool loading_check() => _isloading;
+
+  RxInt getIndex() {
+    print("Getting Index");
+    return _cardIndex;
+  }
 }
