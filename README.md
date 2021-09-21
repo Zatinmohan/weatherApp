@@ -8,6 +8,11 @@ This application uses:
 - Dismissable Cards 
 - Realtime Location Management 
 
+**NOTE** 
+- To make it work generate the key by clicking on OpenWeatherAPI link and generate an API 
+- Add API key to *api/ api_key.dart*
+
+
 ## Resouces 
 - [Design Courtesy](https://dribbble.com/shots/15661680-Weather-App)
 - [OpenWeather API](https://openweathermap.org/api)
