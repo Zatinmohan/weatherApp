@@ -1,16 +1,15 @@
-# weather
+# Weather App
 
-A new Flutter project.
+A simple fully working weather app with state management build using flutter. This application will tell you real-time weather in an organized and beautiful way. 
+This application uses:
+- Getx
+- Build-in Animations
+- API management
+- Dismissable Cards 
+- Realtime Location Management 
 
-## Getting Started
+## Resouces 
+- [Design Courtesy](https://dribbble.com/shots/15661680-Weather-App)
+- [OpenWeather API](https://openweathermap.org/api)
+- [3D Weather Icon By - hosein_bagheri](https://uifreebies.net/icon/3d-weather-icons-free)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
