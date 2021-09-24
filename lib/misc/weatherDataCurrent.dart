@@ -29,10 +29,12 @@ class Current {
     this.humidity,
     this.clouds,
     this.weather,
+    this.temp
   });
 
   int? dt;
   double? windSpeed;
+  double? temp;
   int? humidity;
   int? clouds;
   List<Weather>? weather;
@@ -42,6 +44,7 @@ class Current {
         windSpeed: json["wind_speed"].toDouble(),
         humidity: json["humidity"],
         clouds: json["clouds"],
+        temp:json["temp"],
         weather:
             List<Weather>.from(json["weather"].map((x) => Weather.fromJson(x))),
       );

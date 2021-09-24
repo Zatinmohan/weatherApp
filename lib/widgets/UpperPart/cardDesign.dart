@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather/misc/constants.dart';
+import 'package:weather/widgets/DetailPart/DetailContent.dart';
 import 'package:weather/widgets/UpperPart/cardDetails.dart';
 
 class CardDesign extends StatelessWidget {
@@ -12,7 +13,8 @@ class CardDesign extends StatelessWidget {
       humidity,
       rain,
       index,
-      day;
+      day,
+      isDetailpage;
   const CardDesign({
     Key? key,
     this.day,
@@ -25,6 +27,7 @@ class CardDesign extends StatelessWidget {
     this.wind,
     this.humidity,
     this.rain,
+    this.isDetailpage,
   }) : super(key: key);
 
   @override
@@ -55,17 +58,28 @@ class CardDesign extends StatelessWidget {
           ],
         ),
       ),
-      child: CardDetails(
-        width: width,
-        height: height,
-        temp: temp,
-        day: day,
-        weatherDesp: weatherDesp,
-        weatherName: mainName,
-        wind: wind,
-        humidity: humidity,
-        rain: rain,
-      ),
+      child: isDetailpage
+          ? DetailContent(
+              width: width,
+              height: height,
+              temp: temp,
+              desp: weatherDesp,
+              day: day,
+              wind: wind,
+              humidity: humidity,
+              rain: rain,
+            )
+          : CardDetails(
+              width: width,
+              height: height,
+              temp: temp,
+              day: day,
+              weatherDesp: weatherDesp,
+              weatherName: mainName,
+              wind: wind,
+              humidity: humidity,
+              rain: rain,
+            ),
     );
   }
 }

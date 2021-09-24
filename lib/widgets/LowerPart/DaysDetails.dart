@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:weather/misc/constants.dart';
+import 'package:weather/misc/weatherDataCurrent.dart';
+import 'package:weather/widgets/DetailPart/detailPage.dart';
 
 class DaysDetails extends StatelessWidget {
+  final WeatherDataCurrent? currentWeather;
   final width, height;
-  const DaysDetails({Key? key, this.width, this.height}) : super(key: key);
+  const DaysDetails({Key? key, this.width, this.height, this.currentWeather})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +29,14 @@ class DaysDetails extends StatelessWidget {
                 style: SecondaryTextStyle.copyWith(fontSize: width * 0.055),
               ),
               IconButton(
-                  onPressed: () => print("More Pressed"),
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => DetailWeather(
+                                width: width,
+                                height: height,
+                                currentWeather: currentWeather?.current,
+                              ))),
                   icon: Icon(Icons.arrow_forward_ios,
                       color: secondaryTextColor, size: width * 0.055)),
             ],

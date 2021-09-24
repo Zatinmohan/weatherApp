@@ -41,6 +41,7 @@ class _WeatherCardState extends State<WeatherCard>
         weatherDesp: x?.weather![0].description,
         mainName: x?.weather![0].main,
         day: x?.dt,
+        isDetailpage: false,
       ));
     }
 

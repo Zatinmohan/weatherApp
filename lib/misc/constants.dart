@@ -23,7 +23,7 @@ final Lon = "&lon=";
 final Units = "&units=metric";
 final exclude = "&exclue=minutely";
 final appid = "&appid=";
-
+final degree = "°";
 String getURL(var lat, var lon) {
   String _url;
   _url = Url +

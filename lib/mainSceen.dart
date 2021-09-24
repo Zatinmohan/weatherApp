@@ -29,6 +29,8 @@ class MainScreen extends StatelessWidget {
                       width: width,
                       height: height,
                       hourly: weatherController.getData().getHourlyWeather(),
+                      currentWeather:
+                          weatherController.getData().getCurrentData(),
                     ),
                   ],
                 ),

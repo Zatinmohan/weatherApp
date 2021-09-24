@@ -33,7 +33,6 @@ class CardDetails extends StatefulWidget {
 
 class _CardDetailsState extends State<CardDetails>
     with SingleTickerProviderStateMixin {
-  var degree = "°";
   late final AnimationController _controller;
 
   late Animation<Offset> _animation;
