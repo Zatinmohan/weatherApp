@@ -6,7 +6,8 @@ import 'package:weather/widgets/LowerPart/weatherDetails.dart';
 import 'package:weather/widgets/UpperPart/weatherCards.dart';
 
 class MainScreen extends StatelessWidget {
-  final GlobalController weatherController = Get.put(GlobalController());
+  final GlobalController weatherController =
+      Get.put(GlobalController(), permanent: true);
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;

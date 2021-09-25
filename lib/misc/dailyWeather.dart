@@ -90,14 +90,17 @@ class Weather {
   Weather({
     this.main,
     this.description,
+    this.mainDesp,
   });
 
   String? main;
   String? description;
+  String? mainDesp;
 
   factory Weather.fromJson(Map<String, dynamic> json) => Weather(
         main: json["main"],
         description: json["description"],
+        mainDesp: json["main"],
       );
 
   Map<String, dynamic> toJson() => {
