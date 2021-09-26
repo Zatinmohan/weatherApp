@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather/misc/hourlyWeather.dart';
-import 'package:weather/misc/weatherDataCurrent.dart';
+import 'package:weather/models/hourlyWeather.dart';
+import 'package:weather/models/weatherDataCurrent.dart';
 import 'package:weather/widgets/LowerPart/DaysDetails.dart';
 import 'package:weather/widgets/LowerPart/smallWeatherCards.dart';
 

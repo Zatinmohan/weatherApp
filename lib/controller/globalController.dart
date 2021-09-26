@@ -1,6 +1,6 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
-import 'package:weather/misc/weatherData.dart';
+import 'package:weather/models/weatherData.dart';
 import 'package:weather/api/weather.dart';
 
 class GlobalController extends GetxController {

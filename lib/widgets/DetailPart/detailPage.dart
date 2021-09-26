@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:intl/intl.dart';
 import 'package:weather/controller/globalController.dart';
-import 'package:weather/misc/constants.dart';
-import 'package:weather/misc/dailyWeather.dart';
-import 'package:weather/misc/weatherDataCurrent.dart';
+import 'package:weather/models/dailyWeather.dart';
+import 'package:weather/models/weatherDataCurrent.dart';
+import 'package:weather/widgets/DetailPart/weatherList.dart';
 import 'package:weather/widgets/UpperPart/cardDesign.dart';
 import 'package:get/get.dart';
 
@@ -37,51 +36,7 @@ class DetailWeather extends StatelessWidget {
                 humidity: currentWeather?.humidity,
                 isDetailpage: true,
               ),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: daily?.length,
-                  physics: BouncingScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    print(daily?.length);
-                    var data = daily![index];
-                    String day = DateFormat('EEE').format(
-                        DateTime.fromMillisecondsSinceEpoch(data.dt! * 1000));
-                    String desp = data.weather![0].description!;
-
-                    return ListTile(
-                      contentPadding: EdgeInsets.symmetric(
-                          vertical: height * 0.004, horizontal: width * 0.06),
-                      leading: Text(
-                        "$day",
-                        style: SecondaryTextStyle.copyWith(
-                            fontSize: width * 0.058,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      title: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            selectIcon(data.weather![0].description!),
-                            height: width * 0.1,
-                          ),
-                          SizedBox(width: 5.0),
-                          Text("${data.weather![0].mainDesp}",
-                              style: SecondaryTextStyle.copyWith(
-                                fontSize: width * 0.06,
-                                fontWeight: FontWeight.w500,
-                              )),
-                        ],
-                      ),
-                      trailing: Text(
-                        "${data.temp?.day}",
-                        style: DaysTextStyle.copyWith(
-                            fontSize: width * 0.065,
-                            fontWeight: FontWeight.w700),
-                      ),
-                    );
-                  },
-                ),
-              ),
+              WeatherList(width: width, height: height, daily: daily),
             ],
           ),
         ),

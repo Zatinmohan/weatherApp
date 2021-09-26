@@ -16,6 +16,9 @@ extension MediaQueryValues on BuildContext {
   double get height => MediaQuery.of(this).size.height;
 }
 
+//------------------Setting optins---------------------
+List<String> settingOptions = ["About", "Settings"];
+
 //------API URL----------------
 final Url = "https://api.openweathermap.org/data/2.5/onecall?";
 final Lat = "lat=";

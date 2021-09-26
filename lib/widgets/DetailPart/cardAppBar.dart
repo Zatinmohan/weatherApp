@@ -9,32 +9,53 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 5.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          IconButton(
-              onPressed: () => print("Back"),
-              icon: Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-                size: width * 0.065,
-              )),
-          Text(
+      child: ListTile(
+        contentPadding: EdgeInsets.symmetric(horizontal: 10),
+        leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+              size: width * 0.065,
+            )),
+        title: Center(
+          child: Text(
             "Today",
             style: SecondaryTextStyle.copyWith(
-                color: textColor,
-                fontSize: width * 0.07,
-                fontWeight: FontWeight.w500),
+              color: textColor,
+              fontSize: width * 0.07,
+              fontWeight: FontWeight.w500,
+            ),
           ),
-          IconButton(
-              onPressed: () => print("options"),
-              icon: Icon(
-                Icons.more_vert,
-                color: Colors.white,
-                size: width * 0.065,
-              )),
-        ],
+        ),
+        trailing: PopupMenuButton(
+          color: backgroundColor,
+          elevation: 4.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          itemBuilder: (context) => [
+            PopupMenuItem(
+              child: Text(
+                "Settings",
+                style: TextStyle(color: textColor),
+              ),
+              value: 1,
+            ),
+            PopupMenuItem(
+              child: Text(
+                "About",
+                style: TextStyle(color: textColor),
+              ),
+              value: 2,
+            ),
+          ],
+          child: Icon(
+            Icons.more_vert,
+            color: Colors.white,
+            size: width * 0.065,
+          ),
+        ),
       ),
     );
   }

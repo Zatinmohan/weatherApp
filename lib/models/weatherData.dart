@@ -1,6 +1,6 @@
-import 'package:weather/misc/dailyWeather.dart';
-import 'package:weather/misc/hourlyWeather.dart';
-import 'package:weather/misc/weatherDataCurrent.dart';
+import 'package:weather/models/dailyWeather.dart';
+import 'package:weather/models/hourlyWeather.dart';
+import 'package:weather/models/weatherDataCurrent.dart';
 
 class weatherData {
   WeatherDataCurrent? _current;

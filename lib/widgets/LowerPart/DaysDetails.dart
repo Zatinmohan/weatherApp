@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather/misc/constants.dart';
-import 'package:weather/misc/weatherDataCurrent.dart';
+import 'package:weather/models/weatherDataCurrent.dart';
 import 'package:weather/widgets/DetailPart/detailPage.dart';
 
 class DaysDetails extends StatelessWidget {

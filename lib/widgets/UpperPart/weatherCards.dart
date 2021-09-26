@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather/misc/dailyWeather.dart';
+import 'package:weather/models/dailyWeather.dart';
 import 'cardDesign.dart';
 
 class WeatherCard extends StatefulWidget {

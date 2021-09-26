@@ -25,7 +25,7 @@ class MainScreen extends StatelessWidget {
                       dailyWeather:
                           weatherController.getData().getDailyWeather(),
                     ),
-                    SizedBox(height: 20.0),
+                    SizedBox(height: width * 0.08),
                     WeatherDetail(
                       width: width,
                       height: height,

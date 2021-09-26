@@ -3,10 +3,10 @@ import 'dart:convert';
 import 'package:weather/misc/constants.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:weather/misc/dailyWeather.dart';
-import 'package:weather/misc/hourlyWeather.dart';
-import 'package:weather/misc/weatherData.dart';
-import 'package:weather/misc/weatherDataCurrent.dart';
+import 'package:weather/models/dailyWeather.dart';
+import 'package:weather/models/hourlyWeather.dart';
+import 'package:weather/models/weatherData.dart';
+import 'package:weather/models/weatherDataCurrent.dart';
 
 class APIManager {
   weatherData? _weatherData;

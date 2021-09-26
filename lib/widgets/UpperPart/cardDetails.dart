@@ -82,16 +82,22 @@ class _CardDetailsState extends State<CardDetails>
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "${widget.temp}",
-                  style: smallCardPrimaryText.copyWith(
-                      fontSize: widget.height * 0.2),
+                Flexible(
+                  flex: 2,
+                  child: Text(
+                    "${widget.temp}",
+                    style: smallCardPrimaryText.copyWith(
+                        fontSize: widget.width * 0.28),
+                  ),
                 ),
-                Text(
-                  degree,
-                  style: smallCardPrimaryText.copyWith(
-                    fontSize: widget.height * 0.09,
-                    color: secondaryTextColor2,
+                Flexible(
+                  flex: 1,
+                  child: Text(
+                    degree,
+                    style: smallCardPrimaryText.copyWith(
+                      fontSize: widget.width * 0.12,
+                      color: secondaryTextColor2,
+                    ),
                   ),
                 )
               ],

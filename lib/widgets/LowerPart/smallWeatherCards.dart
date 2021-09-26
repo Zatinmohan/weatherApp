@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weather/controller/globalController.dart';
 import 'package:weather/misc/constants.dart';
-import 'package:weather/misc/hourlyWeather.dart';
+import 'package:weather/models/hourlyWeather.dart';
 import 'package:weather/widgets/LowerPart/smallCardDetails.dart';
 
 class SmallWeatherCards extends StatelessWidget {
