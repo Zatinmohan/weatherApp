@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:weather/controller/globalController.dart';
 import 'package:weather/misc/constants.dart';
+import 'package:weather/widgets/DetailPart/aboutme.dart';
 
 class CustomAppBar extends StatelessWidget {
   final width, height;
@@ -7,6 +10,7 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    GlobalController _controller = Get.find();
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 5.0),
       child: ListTile(
@@ -29,6 +33,11 @@ class CustomAppBar extends StatelessWidget {
           ),
         ),
         trailing: PopupMenuButton(
+          onSelected: (result) {
+            if (result == 2) {
+              showDialog(context: context, builder: (context) => AboutMe(width:width,height:height));
+            }
+          },
           color: backgroundColor,
           elevation: 4.0,
           shape: RoundedRectangleBorder(

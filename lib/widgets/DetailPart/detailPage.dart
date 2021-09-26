@@ -1,8 +1,12 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:weather/controller/globalController.dart';
+import 'package:weather/misc/constants.dart';
 import 'package:weather/models/dailyWeather.dart';
 import 'package:weather/models/weatherDataCurrent.dart';
+import 'package:weather/widgets/DetailPart/aboutme.dart';
 import 'package:weather/widgets/DetailPart/weatherList.dart';
 import 'package:weather/widgets/UpperPart/cardDesign.dart';
 import 'package:get/get.dart';
@@ -21,22 +25,31 @@ class DetailWeather extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 5.0),
-          child: Column(
+          child: Stack(
             children: [
-              CardDesign(
-                width: width,
-                height: height * 0.5,
-                index: 0,
-                temp: currentWeather?.temp,
-                weatherDesp: currentWeather?.weather![0].description,
-                mainName: "N/A",
-                day: currentWeather?.dt,
-                wind: currentWeather?.windSpeed,
-                rain: currentWeather?.clouds,
-                humidity: currentWeather?.humidity,
-                isDetailpage: true,
+              Column(
+                children: [
+                  CardDesign(
+                    width: width,
+                    height: height * 0.5,
+                    index: 0,
+                    temp: currentWeather?.temp,
+                    weatherDesp: currentWeather?.weather![0].description,
+                    mainName: "N/A",
+                    day: currentWeather?.dt,
+                    wind: currentWeather?.windSpeed,
+                    rain: currentWeather?.clouds,
+                    humidity: currentWeather?.humidity,
+                    isDetailpage: true,
+                  ),
+                  WeatherList(width: width, height: height, daily: daily),
+                ],
               ),
-              WeatherList(width: width, height: height, daily: daily),
+              // Obx(
+              //   () => controller.aboutMeCheck().isTrue
+              //       ? AboutMe(width: width, height: height)
+              //       : SizedBox.shrink(),
+              // )
             ],
           ),
         ),

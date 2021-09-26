@@ -33,6 +33,7 @@ dependencies:
   http:
   intl:
   get: ^4.3.8
+  url_launcher:
 
 dev_dependencies:
   flutter_test:
@@ -55,6 +56,7 @@ flutter:
     - assets/moon/
     - assets/snow/
     - assets/clouds/
+    - assets/me.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

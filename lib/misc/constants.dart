@@ -27,6 +27,7 @@ final Units = "&units=metric";
 final exclude = "&exclue=minutely";
 final appid = "&appid=";
 final degree = "°";
+
 String getURL(var lat, var lon) {
   String _url;
   _url = Url +
@@ -64,6 +65,9 @@ const snow = "assets/snow/Snow.png";
 
 //Mist
 const mist = "assets/sun/Misty.png";
+
+//Me
+const devImg = "assets/me.jpg";
 
 //---------------------------------------------------------------
 
@@ -141,3 +145,9 @@ const smallCardPrimaryText = TextStyle(
   fontWeight: FontWeight.bold,
   color: textColor,
 );
+
+//----------------- URLs -------------------
+const String instagram = "https://www.instagram.com/o.my.god.someone_actually/";
+const String github = "https://github.com/Zatinmohan";
+const String email = "jatinmohan06@gmail.com";
+const String linkedIn = "https://www.linkedin.com/in/jatin-mohan/";
