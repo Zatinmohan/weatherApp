@@ -19,9 +19,9 @@ class _WeatherCardState extends State<WeatherCard>
   int? currentIndex;
   AnimationController? controller;
   CurvedAnimation? curvedAnimation;
-  Animation<Offset>? _translationAnim;
-  Animation<Offset>? _moveAnim;
-  Animation<double>? _scaleAnim;
+  // Animation<Offset>? _translationAnim;
+  // Animation<Offset>? _moveAnim;
+  // Animation<double>? _scaleAnim;
 
   @override
   void initState() {
@@ -53,15 +53,15 @@ class _WeatherCardState extends State<WeatherCard>
     curvedAnimation =
         CurvedAnimation(parent: controller!, curve: Curves.fastOutSlowIn);
 
-    _translationAnim = Tween(begin: Offset(0.0, 0.0), end: Offset(500, 0.0))
-        .animate(controller!)
-          ..addListener(() {
-            setState(() {});
-          });
+    // _translationAnim = Tween(begin: Offset(0.0, 0.0), end: Offset(500, 0.0))
+    //     .animate(controller!)
+    //       ..addListener(() {
+    //         setState(() {});
+    //       });
 
-    _scaleAnim = Tween(begin: 0.2, end: 0.5).animate(curvedAnimation!);
-    _moveAnim = Tween(begin: Offset(0.0, 0.05), end: Offset(0.0, 0.01))
-        .animate(curvedAnimation!);
+    // _scaleAnim = Tween(begin: 0.2, end: 0.5).animate(curvedAnimation!);
+    // _moveAnim = Tween(begin: Offset(0.0, 0.05), end: Offset(0.0, 0.01))
+    //     .animate(curvedAnimation!);
   }
 
   @override
@@ -142,9 +142,9 @@ class _WeatherCardState extends State<WeatherCard>
       return Offset(0.0, 0.0);
   }
 
-  Offset _getFlickTransformation(var c) {
-    if (c.index == currentIndex) return _translationAnim!.value;
+  // Offset _getFlickTransformation(var c) {
+  //   if (c.index == currentIndex) return _translationAnim!.value;
 
-    return Offset(0.0, 0.0);
-  }
+  //   return Offset(0.0, 0.0);
+  // }
 }

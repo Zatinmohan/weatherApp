@@ -4,7 +4,7 @@ import 'package:weather/models/weatherData.dart';
 import 'package:weather/api/weather.dart';
 
 class GlobalController extends GetxController {
-  var _weatherData = weatherData().obs;
+  var _weatherData = WeatherData().obs;
   var _cardIndex = 0.obs;
   RxBool _isloading = true.obs;
 
@@ -50,11 +50,11 @@ class GlobalController extends GetxController {
     });
   }
 
-  weatherData getData() {
+  WeatherData getData() {
     return _weatherData.value;
   }
 
-  RxBool loading_check() => _isloading;
+  RxBool loadingCheck() => _isloading;
 
   RxInt getIndex() {
     print("Getting Index");

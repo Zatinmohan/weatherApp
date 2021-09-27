@@ -18,7 +18,6 @@ class WeatherList extends StatelessWidget {
           var data = daily![index];
           String day = DateFormat('EEE')
               .format(DateTime.fromMillisecondsSinceEpoch(data.dt! * 1000));
-          String desp = data.weather![0].description!;
 
           return ListTile(
             contentPadding: EdgeInsets.symmetric(

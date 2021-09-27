@@ -8,13 +8,13 @@ import 'package:weather/models/weatherData.dart';
 import 'package:weather/models/weatherDataCurrent.dart';
 
 class APIManager {
-  weatherData? _weatherData;
+  WeatherData? _weatherData;
 
-  Future<weatherData> processData(var lat, var lon) async {
+  Future<WeatherData> processData(var lat, var lon) async {
     var response = await http.get(Uri.parse(getURL(lat, lon)));
     var jsonString = jsonDecode(response.body);
 
-    _weatherData = weatherData(WeatherDataCurrent.fromJson(jsonString),
+    _weatherData = WeatherData(WeatherDataCurrent.fromJson(jsonString),
         DailyWeather.fromJson(jsonString), HourlyWeather.fromJson(jsonString));
 
     return _weatherData!;

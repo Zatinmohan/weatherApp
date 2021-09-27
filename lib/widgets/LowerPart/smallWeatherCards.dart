@@ -7,13 +7,12 @@ import 'package:weather/widgets/LowerPart/smallCardDetails.dart';
 
 class SmallWeatherCards extends StatelessWidget {
   final smallCardColor = Colors.transparent;
-  int cardIndex = 0;
   final height, width;
   final List<Hourly>? hourlyData;
   SmallWeatherCards({Key? key, this.height, this.width, this.hourlyData})
       : super(key: key);
 
-  GlobalController controller = Get.put(GlobalController());
+  final GlobalController controller = Get.put(GlobalController());
   @override
   Widget build(BuildContext context) {
     RxInt cardIndex = controller.getIndex();

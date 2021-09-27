@@ -4,7 +4,6 @@ import 'package:weather/misc/constants.dart';
 import 'package:weather/widgets/DetailPart/cardAppBar.dart';
 import 'package:weather/widgets/DetailPart/smallDetails.dart';
 import 'package:weather/widgets/DetailPart/weatherDetails.dart';
-import 'package:weather/widgets/UpperPart/smallDetails.dart';
 
 class DetailContent extends StatelessWidget {
   final temp, desp, rain, wind, humidity, day;

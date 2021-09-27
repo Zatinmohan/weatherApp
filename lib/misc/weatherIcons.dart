@@ -1,6 +1,4 @@
 //Thunderstorm
-import 'package:intl/intl.dart';
-
 const thunderStorm = "assets/clouds/ThunderStorm.png";
 const thunderStormNight = "assets/moon/ThunderStrom.png";
 

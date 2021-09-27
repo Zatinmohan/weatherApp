@@ -2,11 +2,11 @@ import 'package:weather/models/dailyWeather.dart';
 import 'package:weather/models/hourlyWeather.dart';
 import 'package:weather/models/weatherDataCurrent.dart';
 
-class weatherData {
+class WeatherData {
   WeatherDataCurrent? _current;
   DailyWeather? _daily;
   HourlyWeather? _hourly;
-  weatherData([
+  WeatherData([
     this._current,
     this._daily,
     this._hourly,

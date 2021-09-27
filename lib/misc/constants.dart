@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:weather/api/api_key.dart';
 
 final cardColor = Color(0xff4884EE);
 final nextCardColor = Color(0xff06BCFB);

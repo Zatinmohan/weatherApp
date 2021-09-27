@@ -22,8 +22,6 @@ class SmallDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var icon;
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [

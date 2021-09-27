@@ -15,7 +15,7 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Obx(
-        () => weatherController.loading_check().isFalse
+        () => weatherController.loadingCheck().isFalse
             ? SingleChildScrollView(
                 child: Column(
                   children: [
