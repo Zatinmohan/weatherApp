@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:weather/misc/constants.dart';
+import 'package:weather/misc/weatherIcons.dart';
 
 class WeatherList extends StatelessWidget {
   final width, height, daily;
@@ -14,7 +15,6 @@ class WeatherList extends StatelessWidget {
         itemCount: daily?.length,
         physics: BouncingScrollPhysics(),
         itemBuilder: (context, index) {
-          print(daily?.length);
           var data = daily![index];
           String day = DateFormat('EEE')
               .format(DateTime.fromMillisecondsSinceEpoch(data.dt! * 1000));

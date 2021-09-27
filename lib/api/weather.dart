@@ -1,7 +1,6 @@
 import 'dart:convert';
 
-import 'package:weather/misc/constants.dart';
-
+import 'package:weather/misc/apiUrl.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather/models/dailyWeather.dart';
 import 'package:weather/models/hourlyWeather.dart';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather/misc/constants.dart';
+import 'package:weather/misc/weatherIcons.dart';
 
 class WeatherDetails extends StatelessWidget {
   final width, height, weatherDesp, temp, day;
