@@ -42,14 +42,10 @@ class DetailWeather extends StatelessWidget {
                     humidity: currentWeather?.humidity,
                     isDetailpage: true,
                   ),
+                  SizedBox(height: 20.0),
                   WeatherList(width: width, height: height, daily: daily),
                 ],
               ),
-              // Obx(
-              //   () => controller.aboutMeCheck().isTrue
-              //       ? AboutMe(width: width, height: height)
-              //       : SizedBox.shrink(),
-              // )
             ],
           ),
         ),

@@ -84,10 +84,13 @@ class _CardDetailsState extends State<CardDetails>
               children: [
                 Flexible(
                   flex: 2,
-                  child: Text(
-                    "${widget.temp}",
-                    style: smallCardPrimaryText.copyWith(
-                        fontSize: widget.width * 0.28),
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: Text(
+                      "${widget.temp}",
+                      style: smallCardPrimaryText.copyWith(
+                          fontSize: widget.width * 0.28),
+                    ),
                   ),
                 ),
                 Flexible(

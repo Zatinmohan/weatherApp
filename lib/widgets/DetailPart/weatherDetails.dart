@@ -35,21 +35,24 @@ class WeatherDetails extends StatelessWidget {
                     fontSize: width * 0.08, fontWeight: FontWeight.w400),
               ),
               SizedBox(height: 1.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "${temp.toStringAsFixed(1)}",
-                    style: smallCardPrimaryText.copyWith(
-                        fontSize: width * 0.2, fontWeight: FontWeight.w500),
-                  ),
-                  Text(
-                    "$degree",
-                    style: smallCardPrimaryText.copyWith(
-                        fontSize: width * 0.1, color: Color(0xffdbdbdb)),
-                  ),
-                ],
+              FittedBox(
+                fit: BoxFit.contain,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "${temp.toStringAsFixed(1)}",
+                      style: smallCardPrimaryText.copyWith(
+                          fontSize: width * 0.2, fontWeight: FontWeight.w500),
+                    ),
+                    Text(
+                      "$degree",
+                      style: smallCardPrimaryText.copyWith(
+                          fontSize: width * 0.1, color: Color(0xffdbdbdb)),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: 1.0),
               Text(
