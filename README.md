@@ -8,6 +8,11 @@ This application uses:
 - Dismissable Cards 
 - Realtime Location Management 
 
+
+<img src = "gif1.gif" alt="Main Screen" width="250" height="500">
+<img src="gif2.gif" alt="Second Screen" width="250" height="500">
+
+
 **NOTE** 
 - To make it work generate the key by clicking on OpenWeatherAPI link and generate an API key
 - Add API key to *api/ api_key.dart*
