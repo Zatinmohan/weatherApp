@@ -2,7 +2,7 @@
 
 A simple fully working weather app with state management build using flutter. This application will tell you real-time weather in an organized and beautiful way. 
 This application uses:
-- Getx
+- State management
 - Build-in Animations
 - API management
 - Dismissable Cards 
