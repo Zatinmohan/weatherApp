@@ -9,8 +9,7 @@ This application uses:
 - Realtime Location Management 
 
 
-<img src = "gif1.gif" alt="Main Screen" width="250" height="500">
-<img src="gif2.gif" alt="Second Screen" width="250" height="500">
+<img src = "gif1.gif" alt="Main Screen" width="250" height="450">  <img src="gif2.gif" alt="Second Screen" width="250" height="450">
 
 
 **NOTE** 
